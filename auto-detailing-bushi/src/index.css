@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+@layer base {
+  h1, h2, h3, h4 {
+    @apply font-heading text-brand-charcoal;
+  }
+  :focus-visible {
+    outline: 2px solid #8A5A34;
+    outline-offset: 2px;
+  }
+}
+
+/* Lightbox fade */
+.lightbox-enter {
+  animation: fadeIn 0.2s ease-out both;
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Simple reveal-on-scroll utility */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
